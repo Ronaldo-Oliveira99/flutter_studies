@@ -35,7 +35,10 @@ Latest commit dfa099b on 31 Aug
 # is not the case. So instead we include lots of guff in   #
 # here.                                                    #
 ############################################################
-
+.02-hello-flutter
+/03-basic-widgets
+04-understanding-widgets/
+05-scrollable-widgets/
 
 ############################################################
 # macOS                                                    #
