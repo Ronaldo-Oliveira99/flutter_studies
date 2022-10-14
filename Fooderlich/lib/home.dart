@@ -3,6 +3,9 @@ import 'screens/explore_screen.dart';
 import 'screens/recipes_screen.dart';
 import 'screens/grocery_screen.dart';
 
+import 'package:provider/provider.dart';
+import 'models/models.dart';
+
 // 1.2 Sua nova classe estende StatefulWidget.
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,18 +15,16 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-
   // TODO: Add state variables and functions
   /* 7.2  _selectedIndex mantém o controle de qual guia está selecionada no momento. O sublinhado em _selectedIndex
    significa que é privado. O índice selecionado é o estado que está sendo rastreado por _HomeState. */
   int _selectedIndex = 0;
 
- /* 8.2 Aqui, você define os widgets que serão exibidos em cada guia. Por enquanto, quando você toca entre os 
+  /* 8.2 Aqui, você define os widgets que serão exibidos em cada guia. Por enquanto, quando você toca entre os 
     diferentes itens da barra de guias, ele mostra widgets de contêiner de cores diferentes. Em breve, 
     você substituirá cada um deles por widgets de cartão. */
   static List<Widget> pages = <Widget>[
-
-     // TODO: Replace with Card1
+    // TODO: Replace with Card1
     //--Container(color: Colors.red),
     //--const Card1(),
     ExploreScreen(),
@@ -32,8 +33,7 @@ class HomeState extends State<Home> {
     //--Container(color: Colors.green),
     //--const Card2(),
     RecipesScreen(),
-    
-    
+
     // TODO: Replace with grocery screen
 
     // TODO: Replace with Card3
@@ -43,7 +43,7 @@ class HomeState extends State<Home> {
     const GroceryScreen(),
   ];
 
- /* 9.2 Esta função lida com itens da barra de guias tocados. Aqui, você define o índice do item que o 
+  /* 9.2 Esta função lida com itens da barra de guias tocados. Aqui, você define o índice do item que o 
     usuário pressionou. setState() notifica o framework que o estado deste objeto foi alterado, então 
     reconstrói este widget internamente */
   void _onItemTapped(int index) {
@@ -54,12 +54,63 @@ class HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
     /* O widget MaterialApp contém um widget Scaffold, que define o layout e a estrutura do aplicativo. 
       O scaffold tem duas propriedades: um appBar e um body. O título de uma Appbar contém um widget de texto. 
       O corpo tem um widget Center, cuja propriedade filho é um widget Text. */
 
     // TODO: Wrap inside a Consumer Widget
+
+    /* 1 Envolve todos os widgets dentro do Consumer. Quando o TabManager muda, os widgets
+        abaixo ele será reconstruído. */
+    return Consumer<TabManager>(
+      builder: (context, tabManager, child) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Fooderlich',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+          ),
+
+          // 2 Exibe o widget de página correto, com base no índice da guia atual.
+          // TODO: Replace body
+          body: pages[tabManager.selectedTab],
+          bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor:
+                Theme.of(context).textSelectionTheme.selectionColor,
+
+            // 3 Define o índice atual de BottomNavigationBar.
+            currentIndex: tabManager.selectedTab,
+            onTap: (index) {
+              
+              /* 4 Chama manager.goToTab() quando o usuário toca em uma guia diferente, para notificar outros
+                    widgets que o índice mudou. */
+              tabManager.goToTab(index);
+            },
+            items: <BottomNavigationBarItem>[
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.explore),
+                label: 'Explore',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.book),
+                label: 'Recipes',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.list),
+                label: 'To Buy',
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+/*  CODIGO ANTERIOR PAG 214 , MUDANÇA DE TODO O CORPO DE BUILD 
+
+ // TODO: Wrap inside a Consumer Widget
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -115,5 +166,5 @@ class HomeState extends State<Home> {
         ],
       ),
     );
-  }
-}
+
+  */

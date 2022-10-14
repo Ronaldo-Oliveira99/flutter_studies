@@ -45,7 +45,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-\02-hello-flutter/
+\02-hello-flutter
 /03-basic-widgets/
 /04-understanding-widgets/
 /05-scrollable-widgets/
