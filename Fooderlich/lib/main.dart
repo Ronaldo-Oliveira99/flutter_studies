@@ -9,11 +9,9 @@ import 'models/models.dart';
 void main() {
   runApp(const Fooderlich());
 }
-
+ // This widget is the root of your application.
 class Fooderlich extends StatelessWidget {
   const Fooderlich({Key? key}) : super(key: key);
-
-// This widget is the root of your application.
 
   /*1. O método build() de um widget é o ponto de entrada para compor outros
   widgets para fazer um novo widget. */
@@ -35,17 +33,17 @@ class Fooderlich extends StatelessWidget {
         theme: theme,
 
         // TODO 8: Replace this with MultiProvider
-
         /* 1 Você atribui MultiProvider como uma propriedade de Home. Isso aceita uma lista de provedores
           para que os widgets descendentes do Home acessem */
         home: MultiProvider(
           providers: [
-            
             /* 2 ChangeNotifierProvider cria uma instância de TabManager, que escuta
           tab index muda e notifica seus ouvintes. */
             ChangeNotifierProvider(create: (context) => TabManager()),
-
+            
             // TODO 10: Add GroceryManager Provider
+            ChangeNotifierProvider(create: (context) => GroceryManager()),
+          
           ],
           child: const Home(),
         )

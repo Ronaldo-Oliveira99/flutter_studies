@@ -58,8 +58,7 @@ class HomeState extends State<Home> {
       O scaffold tem duas propriedades: um appBar e um body. O título de uma Appbar contém um widget de texto. 
       O corpo tem um widget Center, cuja propriedade filho é um widget Text. */
 
-    // TODO: Wrap inside a Consumer Widget
-
+    //*$$ TODO 9: Wrap inside a Consumer Widget
     /* 1 Envolve todos os widgets dentro do Consumer. Quando o TabManager muda, os widgets
         abaixo ele será reconstruído. */
     return Consumer<TabManager>(
@@ -87,16 +86,16 @@ class HomeState extends State<Home> {
                     widgets que o índice mudou. */
               tabManager.goToTab(index);
             },
-            items: <BottomNavigationBarItem>[
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.explore),
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.audiotrack),
                 label: 'Explore',
               ),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 icon: Icon(Icons.book),
                 label: 'Recipes',
               ),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 icon: Icon(Icons.list),
                 label: 'To Buy',
               ),

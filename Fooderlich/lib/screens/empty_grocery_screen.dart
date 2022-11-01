@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'empty_grocery_screen.dart';
 
+import 'package:provider/provider.dart';
+import '../models/models.dart';
+
 class EmptyGroceryScreen extends StatelessWidget {
   const EmptyGroceryScreen({Key? key}) : super(key: key);
   @override
@@ -57,6 +60,11 @@ class EmptyGroceryScreen extends StatelessWidget {
               color: Colors.green,
               onPressed: () {
                 // TODO 8: Go to Recipes Tab
+                /**Aqui, você usa Provider.of() para acessar o objeto de modelo,TabManager.goToRecipes() 
+                * define o índice para a guia Receitas.isso notifica o consumidor para reconstruir a página 
+                * inicial com o índice da guia direita
+                */
+                Provider.of<TabManager>(context, listen: false).goToRecipes();
               },
             ),
           ],

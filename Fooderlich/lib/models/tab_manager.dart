@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-//1 Isso permite que o objeto forneça alterações notificações aos seus ouvintes.
+
+//1 TabManager extends ChangeNotifier. 
+//Isso permite que o objeto forneça alterações notificações aos seus ouvintes.
 class TabManager extends ChangeNotifier {
 
   // 2 selectedTab mantém o controle de qual guia o usuário tocou.
