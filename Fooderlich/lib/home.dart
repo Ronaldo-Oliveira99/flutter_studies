@@ -73,7 +73,12 @@ class HomeState extends State<Home> {
 
           // 2 Exibe o widget de página correto, com base no índice da guia atual.
           // TODO: Replace body
-          body: pages[tabManager.selectedTab],
+          //--body: pages[tabManager.selectedTab],
+
+          /*IndexedStack permite alternar facilmente os widgets em seu aplicativo. Ele só mostra um
+            widget filho por vez, mas preserva o estado de todos os filhos. Sim, existe um
+            widget para isso! */
+          body: IndexedStack(index: tabManager.selectedTab, children: pages),
           bottomNavigationBar: BottomNavigationBar(
             selectedItemColor:
                 Theme.of(context).textSelectionTheme.selectionColor,
@@ -81,7 +86,6 @@ class HomeState extends State<Home> {
             // 3 Define o índice atual de BottomNavigationBar.
             currentIndex: tabManager.selectedTab,
             onTap: (index) {
-              
               /* 4 Chama manager.goToTab() quando o usuário toca em uma guia diferente, para notificar outros
                     widgets que o índice mudou. */
               tabManager.goToTab(index);

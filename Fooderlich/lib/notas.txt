@@ -1,0 +1,17 @@
+CAPITULO 6
+
+• Você pode transmitir dados com retornos de chamada ou pacotes de provedor.
+• Se você precisar passar dados um nível acima, use retornos de chamada.
+• Se você precisar passar dados profundamente na árvore de widgets, use provedores.
+• Provider é um auxiliar de gerenciamento de estado que atua como um wrapper em torno de herdado
+widgets.
+• O provedor ajuda a expor objetos de modelo de estado para widgets abaixo dele.
+• O consumidor ouve as alterações nos valores e reconstrói os widgets abaixo de si mesmo.
+• Divida seus widgets por tela para manter o código modular e organizado.
+• Crie objetos gerenciadores para gerenciar funções e mudanças de estado em um só lugar.
+• Os widgets de gestos reconhecem e determinam o tipo de evento de toque. Eles providenciam
+callbacks para reagir a eventos como onTap ou onDrag.
+• Você pode usar widgets descartáveis para remover itens de uma lista.
+
+** Você pode explorar outros pacotes em https://pub.dev/, um lugar onde você pode encontrar
+os widgets mais populares criados pela comunidade Flutter

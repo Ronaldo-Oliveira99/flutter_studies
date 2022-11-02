@@ -28,8 +28,8 @@ class Fooderlich extends StatelessWidget {
       A interface do usuário não exibirá isso. */
         title: 'Fooderlich',
 
-        /*5. Ao copiar o tema e substituir o esquema de cores por uma cópia atualizada, você pode alterar as cores do aplicativo. 
-      Aqui, a cor primária é Colors.grey e a cor secundária é Colors.black. */
+        /*5. Ao copiar o tema e substituir o esquema de cores por uma cópia atualizada, você pode alterar as 
+        cores do aplicativo. Aqui, a cor primária é Colors.grey e a cor secundária é Colors.black. */
         theme: theme,
 
         // TODO 8: Replace this with MultiProvider
@@ -37,6 +37,7 @@ class Fooderlich extends StatelessWidget {
           para que os widgets descendentes do Home acessem */
         home: MultiProvider(
           providers: [
+
             /* 2 ChangeNotifierProvider cria uma instância de TabManager, que escuta
           tab index muda e notifica seus ouvintes. */
             ChangeNotifierProvider(create: (context) => TabManager()),
